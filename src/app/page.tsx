@@ -2,6 +2,6 @@
 
 export default function Home() {
   return (
-    <p>Hello HyveNode</p>
+    <p className="text-red-500 font-mono font-bold">Hello HyveNode</p>
   );
 }
