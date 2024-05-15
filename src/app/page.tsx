@@ -1,7 +1,9 @@
+import React from 'react'
 
-
-export default function Home() {
+const TestPage = () => {
   return (
-    <p className="text-red-500 font-mono font-bold">Hello HyveNode</p>
-  );
+    <div>TestPage</div>
+  )
 }
+
+export default TestPage
