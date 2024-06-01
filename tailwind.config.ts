@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        'feature' : ['feature'],
+        'chubbo': ['chubbo']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

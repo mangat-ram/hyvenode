@@ -80,3 +80,13 @@ body,
       @apply bg-background text-foreground;
     }
   }
+
+@font-face {
+  font-family: feature;
+  src: url("../../public/feature.ttf")
+}
+
+@font-face {
+  font-family: chubbo;
+  src: url("../../public/chubbo.ttf");
+}
