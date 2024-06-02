@@ -20,7 +20,8 @@ const config = {
     extend: {
       fontFamily: {
         'feature' : ['feature'],
-        'chubbo': ['chubbo']
+        'chubbo': ['chubbo'],
+        'dsans' : ['dsans']
       },
       colors: {
         border: "hsl(var(--border))",

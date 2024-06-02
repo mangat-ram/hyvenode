@@ -90,3 +90,8 @@ body,
   font-family: chubbo;
   src: url("../../public/chubbo.ttf");
 }
+
+@font-face {
+  font-family: dsans;
+  src: url("../../public/dmSans.ttf");
+}

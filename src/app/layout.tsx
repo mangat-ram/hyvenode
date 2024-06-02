@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={mongoSerif.className}>
         <ConvexClientProvider>
+          <Toaster position="bottom-center" />
           {children}
         </ConvexClientProvider>
       </body>
