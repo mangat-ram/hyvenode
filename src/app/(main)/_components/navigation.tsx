@@ -143,6 +143,11 @@ const Navigation = () => {
           </div>
           <div className="mt-4">
             <DocumentList />
+            <Item 
+              onClick={handleCreate}
+              icon={Plus}
+              label="Add a Page"
+            /> 
           </div>
           <div 
             onMouseDown={handleMouseDown}
@@ -164,4 +169,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Navigation;
