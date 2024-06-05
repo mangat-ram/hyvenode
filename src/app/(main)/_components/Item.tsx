@@ -44,11 +44,12 @@ export const Item = ({
   ) => {
     event.stopPropagation();
     onExpand?.();
-  }
+  };
 
   const onCreate = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    event.stopPropagation();
     if(!id) return;
     const promise = create({ title:"Untitled", parentDocument: id })
     .then((documentId) => {
@@ -83,7 +84,7 @@ export const Item = ({
       {!!id && (
         <div
           role="button"
-          className="h-full rounded-sm bg-neutral-300"
+          className="h-full rounded-sm bg-neutral-300 mr-1"
           onClick={handleExpand}
         >
           <ChevronIcon
@@ -92,7 +93,7 @@ export const Item = ({
         </div>
       )}
       {documentIcon ? (
-        <div className="shrink-0 mr-0 text-[18px]"> 
+        <div className="shrink-0 mr-2 text-[18px]"> 
           {documentIcon}
         </div>
       ) : (

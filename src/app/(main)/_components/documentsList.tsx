@@ -17,8 +17,7 @@ interface DocumentsListProps{
 
 export const DocumentList = ({
   parentDocumentId,
-  level,
-  data
+  level = 0,
 } : DocumentsListProps) => {
 
   const params = useParams();
