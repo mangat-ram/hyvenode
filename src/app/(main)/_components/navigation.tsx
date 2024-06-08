@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon, Plus, Search, Settings2, Trash } from "lucide-react"
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./userItem";
@@ -12,11 +12,15 @@ import { DocumentList } from "./documentsList";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TrashBox } from "./trashBox";
 import { useSearch } from "@/hooks/useSearch";
+import { useSettings } from "@/hooks/useSettings";
+import { Navbar } from "./navbar";
 
 const Navigation = () => {
 
+  const settings = useSettings();
   const search = useSearch();
   const pathName = usePathname();
+  const params = useParams();
   const isMobile = useMediaQuery("(max-width:768px)");
   const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
@@ -137,7 +141,7 @@ const Navigation = () => {
             <Item 
               label="Settings"
               icon={Settings2}
-              onClick={() => {}}
+              onClick={settings.onOpen}
             />
             <Item 
               onClick={handleCreate} 
@@ -179,9 +183,16 @@ const Navigation = () => {
         isMobile && "left-0 w-full"    
       )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && <MenuIcon onClick={resetWidth} className="h-6 w-6 text-muted-foreground"/>}
-        </nav>
+        {!!params.documentId ? (
+          <Navbar 
+            isCollapsed={isCollapsed}
+            onResetWidth={resetWidth}
+          />
+        ) : (
+          <nav className="bg-transparent px-3 py-2 w-full">
+            {isCollapsed && <MenuIcon onClick={resetWidth} className="h-6 w-6 text-muted-foreground"/>}
+          </nav>
+        )}
       </div>
     </>
   )
