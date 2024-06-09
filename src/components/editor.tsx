@@ -1,16 +1,13 @@
-"use client";
-
-import React from "react";
-
 import {
   BlockNoteEditor,
   PartialBlock
 } from "@blocknote/core";
-import {
-  BlockNoteViewRaw,
-  useBlockNote
-} from "@blocknote/react";
-import "@blocknote/react/style.css";
+import { useBlockNoteEditor, useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteView } from "@blocknote/mantine";
+import "@blocknote/core/fonts/inter.css";
+import "@blocknote/mantine/style.css";
+
+import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -23,7 +20,17 @@ export const Editor = ({
   initialContent,
   editable
 }: EditorProps) => {
+
+  const { edgestore } = useEdgeStore();
+
+  const editor = useBlockNoteEditor();
+
   return (
-    <div>Editor</div>
+    <div>
+      <BlockNoteView 
+        editor={editor}
+      />
+    </div>
   )
 }
+
