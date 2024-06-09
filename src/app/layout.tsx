@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convexProvider";
 import { ModalProvider } from "@/components/providers/modalProvider";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const mongoSerif = localFont({ src: './mongo.ttf' });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={mongoSerif.className}>
         <ConvexClientProvider>
-          <Toaster position="bottom-center" />
-          <ModalProvider />
-          {children}
+          <EdgeStoreProvider>
+            <Toaster position="bottom-center" />
+            <ModalProvider />
+            {children}
+          </EdgeStoreProvider>
         </ConvexClientProvider>
       </body>
     </html>
