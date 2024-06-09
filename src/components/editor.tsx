@@ -2,7 +2,7 @@ import {
   BlockNoteEditor,
   PartialBlock
 } from "@blocknote/core";
-import { useBlockNoteEditor, useCreateBlockNote } from "@blocknote/react";
+import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
@@ -23,7 +23,7 @@ export const Editor = ({
 
   const { edgestore } = useEdgeStore();
 
-  const editor = useBlockNoteEditor();
+  const editor = useCreateBlockNote();
 
   return (
     <div>
