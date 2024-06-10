@@ -1,7 +1,11 @@
 import React from "react";
 import Navbar from "./_components/Navbar";
 
-const LandingPageLayout = ({children} : React.ReactNode) => {
+interface LandingPageProps{
+  children: React.ReactNode;
+}
+
+const LandingPageLayout = ({children} : LandingPageProps) => {
   return (
     <div className="h-full">
       <Navbar />
